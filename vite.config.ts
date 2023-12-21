@@ -6,6 +6,9 @@ export default defineConfig({
   plugins: [
     monkey({
       entry: 'src/main.ts',
+      build: {
+        fileName: 'game2dx.user.js'
+      },
       userscript: {
         name: 'game2dx',
         namespace: 'muro3r/game2dx',
