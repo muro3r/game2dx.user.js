@@ -15,6 +15,10 @@ export default defineConfig({
         author: "muro3r",
         match: ["https://p.eagate.573.jp/game/2dx/*"],
         icon: "https://www.google.com/s2/favicons?sz=64&domain=573.jp",
+        downloadURL:
+          "https://github.com/muro3r/game2dx.user.js/releases/latest/download/game2dx.user.js",
+        updateURL:
+          "https://github.com/muro3r/game2dx.user.js/releases/latest/download/game2dx.user.js",
       },
     }),
   ],
