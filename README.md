@@ -15,3 +15,10 @@ Chrome は [Tampermonkey](https://chrome.google.com/webstore/detail/dhdgffkkebhm
 
 また、設定値はセッショストレージに一時保存しているため、表示しているタブを閉じると設定値はリセットされます。
 
+## プレー録画機能の動画詳細にファイル名用の項目を追加する
+
+プレー録画機能の動画詳細ページにファイル名用の項目を追加します。  
+`プレイ日時 楽曲名 譜面 (プレー店舗)` として表示します。参考程度に使ってください。
+
+![play-recorder-filename](./docs/play-recorder-filename.png)
+
