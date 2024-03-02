@@ -12,13 +12,14 @@ export function createArenaPlayerCounter() {
     DOUBLE = "1",
   }
 
-  customElements.define("arena-active-player-count", ArenaActivePlayerCounter, {
-    extends: "div",
-  });
+  customElements.define(
+    "arena-active-player-counter",
+    ArenaActivePlayerCounter,
+  );
 
-  const counterElement = document.createElement("div", {
-    is: "arena-active-player-count",
-  }) as ArenaActivePlayerCounter;
+  const counterElement = document.createElement(
+    "arena-active-player-counter",
+  ) as ArenaActivePlayerCounter;
   playMenu.append(counterElement);
 
   $(document).on(
