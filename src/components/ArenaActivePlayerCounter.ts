@@ -1,16 +1,18 @@
-export class ArenaActivePlayerCounter extends HTMLDivElement {
+export class ArenaActivePlayerCounter extends HTMLElement {
   #single: number | null = null;
   #double: number | null = null;
 
   textElement = document.createElement("p");
 
-  constructor() {
-    super();
-
-    this.classList.add("frame");
+  connectedCallback() {
+    const frameElement = document.createElement("div");
+    frameElement.setAttribute("class", "frame");
 
     this.textElement.innerText = this.text;
-    this.append(this.textElement);
+
+    frameElement.append(this.textElement);
+
+    this.append(frameElement);
   }
 
   set single(val: number) {
