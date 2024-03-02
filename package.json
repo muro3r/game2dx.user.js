@@ -1,7 +1,7 @@
 {
   "name": "game2dx.user.js",
   "private": true,
-  "version": "31.1.0",
+  "version": "31.1.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
