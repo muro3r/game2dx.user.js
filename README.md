@@ -22,3 +22,7 @@ Chrome は [Tampermonkey](https://chrome.google.com/webstore/detail/dhdgffkkebhm
 
 ![play-recorder-filename](./docs/play-recorder-filename.png)
 
+## 直近でアリーナモードをプレーした人数を表示する
+
+`アリーナクラスTOP RANKER RANKING` に表示されているプレイヤー (上位1000人) のうち、  
+直近 (1時間) にプレーした人数をプレイスタイル毎に表示します。
