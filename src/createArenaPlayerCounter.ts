@@ -1,4 +1,4 @@
-import { arena } from "../types";
+import type { arena } from "../types";
 import { ArenaActivePlayerCounter } from "./components/ArenaActivePlayerCounter";
 
 export function createArenaPlayerCounter() {
