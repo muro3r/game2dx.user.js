@@ -7,5 +7,5 @@
       "automerge": true
     }
   ],
-  "ignoreDeps": ["@type/jquery"]
+  "ignoreDeps": ["@types/jquery"]
 }
