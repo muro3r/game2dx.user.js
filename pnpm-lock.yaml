@@ -9,8 +9,8 @@ devDependencies:
     specifier: 1.7.1
     version: 1.7.1
   '@types/jquery':
-    specifier: ^2.0.68
-    version: 2.0.68
+    specifier: ^3.0.0
+    version: 3.5.29
   husky:
     specifier: ^9.0.11
     version: 9.0.11
@@ -436,8 +436,14 @@ packages:
     resolution: {integrity: sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==}
     dev: true
 
-  /@types/jquery@2.0.68:
-    resolution: {integrity: sha512-9E8HinL4D/VgWf6tci0/NWlkw8i8e5pL00yVmBpFaVmveSwMq3lEQcrRJVbu62Fprm3nBTHXkqkEByjGoQCpTA==}
+  /@types/jquery@3.5.29:
+    resolution: {integrity: sha512-oXQQC9X9MOPRrMhPHHOsXqeQDnWeCDT3PelUIg/Oy8FAbzSZtFHRjc7IpbfFVmpLtJ+UOoywpRsuO5Jxjybyeg==}
+    dependencies:
+      '@types/sizzle': 2.3.8
+    dev: true
+
+  /@types/sizzle@2.3.8:
+    resolution: {integrity: sha512-0vWLNK2D5MT9dg0iOo8GlKguPAU02QjmZitPEsXRuJXU/OGIOt9vT9Fc26wtYuavLxtO45v9PGleoL9Z0k1LHg==}
     dev: true
 
   /acorn-walk@8.3.2:
