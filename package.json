@@ -1,13 +1,13 @@
 {
   "name": "game2dx.user.js",
-  "private": true,
   "version": "31.1.1",
+  "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview",
-    "prepare": "husky install"
+    "dev": "vite",
+    "prepare": "husky install",
+    "preview": "vite preview"
   },
   "devDependencies": {
     "@biomejs/biome": "1.8.0",
