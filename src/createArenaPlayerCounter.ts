@@ -39,7 +39,7 @@ export function createArenaPlayerCounter() {
 
         const currentDate = new Date();
         return (
-          currentDate.getTime() - 1 * 60 * 60 * 1000 <= updateDate.getTime()
+          currentDate.getTime() - 1 * 60 * 30 * 1000 <= updateDate.getTime()
         );
       });
 

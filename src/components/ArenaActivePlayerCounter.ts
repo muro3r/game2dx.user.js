@@ -28,7 +28,7 @@ export class ArenaActivePlayerCounter extends HTMLElement {
   }
 
   get text() {
-    return `1時間以内にプレーした人数: SP: ${this.#single ?? "--"}人 DP: ${
+    return `30分以内にプレーした人数: SP: ${this.#single ?? "--"}人 DP: ${
       this.#double ?? "--"
     }人`;
   }

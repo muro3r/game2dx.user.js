@@ -24,5 +24,5 @@ Chrome は [Tampermonkey](https://chrome.google.com/webstore/detail/dhdgffkkebhm
 
 ## 直近でアリーナモードをプレーした人数を表示する
 
-`アリーナクラスTOP RANKER RANKING` に表示されているプレイヤー (上位1000人) のうち、  
-直近 (1時間) にプレーした人数をプレイスタイル毎に表示します。
+`アリーナクラスTOP RANKER RANKING` に表示されているプレイヤー (上位 1000 人) のうち、  
+直近 (30 分) にプレーした人数をプレイスタイル毎に表示します。
