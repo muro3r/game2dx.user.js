@@ -10,17 +10,27 @@ export function arenaModeUnlockStatus() {
     Math.max(...arenaPeriod.map((p) => p.eventCount)),
   );
 
-  const element = createElement(unlockStatus);
-
   const divElement = document.createElement("div");
-
   divElement.setAttribute("class", "arena-cube");
+
+  const element = createTableHeader();
   divElement.appendChild(element);
+
+  const unlockStatusListElements = createUnlockStatusList(unlockStatus);
+
+  for (const p of unlockStatusListElements) {
+    divElement.appendChild(p);
+  }
+
+  const notice = document.createElement("p");
+  notice.setAttribute("class", "notice");
+  notice.innerText = "※ 1曲目の解禁は60個、2曲目の解禁は120個です。";
+  divElement.appendChild(notice);
 
   arenaCubeElement.insertAdjacentElement("afterend", divElement);
 }
 
-function createElement(unlockStatus: ArenaUnlockStauts[]): HTMLTableElement {
+function createTableHeader(): HTMLTableElement {
   const table = document.createElement("table");
 
   const header = document.createElement("tr");
@@ -30,29 +40,14 @@ function createElement(unlockStatus: ArenaUnlockStauts[]): HTMLTableElement {
   header.appendChild(header1Cell);
 
   const header2Cell = document.createElement("th");
-  header2Cell.innerText = "解禁状況";
-  header2Cell.colSpan = 2;
+  header2Cell.innerText = "解禁状況 (1曲目)";
   header.appendChild(header2Cell);
 
+  const header3Cell = document.createElement("th");
+  header3Cell.innerText = "解禁状況 (2曲目)";
+  header.appendChild(header3Cell);
+
   table.appendChild(header);
-
-  for (const status of unlockStatus.reverse()) {
-    const row = document.createElement("tr");
-
-    const cell1 = document.createElement("td");
-    cell1.innerText = `${status.id}回`;
-    row.appendChild(cell1);
-
-    const cell2 = document.createElement("td");
-    cell2.innerText = `${status.data[0] ? "○" : "×"}`;
-    row.appendChild(cell2);
-
-    const cell3 = document.createElement("td");
-    cell3.innerText = `${status.data[1] ? "○" : "×"}`;
-
-    row.appendChild(cell3);
-    table.appendChild(row);
-  }
 
   return table;
 }
@@ -65,6 +60,34 @@ export interface ArenaPeriod {
 }
 
 export type ArenaUnlockStauts = { id: number; data: [boolean, boolean] };
+
+function createUnlockStatusList(
+  unlockStatus: ArenaUnlockStauts[],
+): HTMLUListElement[] {
+  const result: HTMLUListElement[] = [];
+
+  for (const status of unlockStatus.reverse()) {
+    const ul = document.createElement("ul");
+    ul.setAttribute("class", "cube");
+
+    const cell1 = document.createElement("li");
+    cell1.innerText = `第${status.id}回`;
+    ul.appendChild(cell1);
+
+    const cell2 = document.createElement("li");
+    cell2.innerText = `${status.data[0] ? "○" : "×"}`;
+    ul.appendChild(cell2);
+
+    const cell3 = document.createElement("li");
+    cell3.innerText = `${status.data[1] ? "○" : "×"}`;
+
+    ul.appendChild(cell3);
+
+    result.push(ul);
+  }
+
+  return result;
+}
 
 export function checkArenaUnlockStatus(
   arenaPeriod: ArenaPeriod[],
@@ -121,49 +144,36 @@ export function checkArenaUnlockStatus(
 }
 
 export function parseTable(html: Element): ArenaPeriod[] {
-  const table = html.querySelector("table");
-  if (!table) {
-    throw new Error("table not found");
-  }
-
   const rows = [
-    ...(table.querySelectorAll(
-      "tr:has(td)",
-    ) as unknown as HTMLTableRowElement[]),
+    ...(html.querySelectorAll("ul") as unknown as HTMLTableRowElement[]),
   ];
 
-  const result: ArenaPeriod[] = [];
-
-  for (const row of rows) {
-    result.push(parseTableRow(row));
-  }
-
-  return result;
+  return rows.map(parseTableRow);
 }
 
 function parseTableRow(tableRow: HTMLTableRowElement): ArenaPeriod {
-  const cells = Array.from(tableRow.querySelectorAll("td"));
+  const cells = Array.from(tableRow.querySelectorAll("li"));
 
-  const [_eventCountText, _br, durationText] = Array.from(
-    cells[0].childNodes,
-  ).map((node) => node.textContent);
+  const eventCount = Number(
+    cells[0].querySelector("b")?.textContent?.match(/\d+/)?.[0],
+  );
+  const durationText = cells[0].querySelector("span")?.textContent;
 
-  if (!_eventCountText || !durationText) {
+  if (!(eventCount && durationText)) {
     throw new Error("invalid table row");
   }
-
-  const eventCount = Number(_eventCountText.match(/\d+/));
 
   const [beginDateText, endDateText] = durationText.split("～");
 
   const begin = new Date(beginDateText);
   const end = new Date(endDateText);
   const cubeCount = Number(cells[1].textContent?.match(/^\d+/));
+  const stockBonus = Number(cells[2].textContent?.match(/\d+/));
 
   return {
     eventCount,
     begin,
     end,
-    cubeCount,
+    cubeCount: cubeCount + stockBonus,
   };
 }
