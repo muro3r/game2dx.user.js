@@ -27,22 +27,10 @@ describe("arenaCube", () => {
   it("テーブルの内容をパースする", () => {
     const expected: ArenaPeriod[] = [
       {
-        eventCount: 4,
-        begin: new Date("2024-03-21T00:00:00.000+09:00"),
-        end: new Date("2024-04-03T00:00:00.000+09:00"),
-        cubeCount: 140,
-      },
-      {
-        eventCount: 2,
-        begin: new Date("2024-01-25T00:00:00.000+09:00"),
-        end: new Date("2024-02-07T00:00:00.000+09:00"),
-        cubeCount: 125,
-      },
-      {
         eventCount: 1,
-        begin: new Date("2023-12-20T00:00:00.000+09:00"),
-        end: new Date("2024-01-08T00:00:00.000+09:00"),
-        cubeCount: 73,
+        begin: new Date("2024-12-19:00:00.000+09:00"),
+        end: new Date("2025-01-05T00:00:00.000+09:00"),
+        cubeCount: 58,
       },
     ];
 
