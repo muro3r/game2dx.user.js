@@ -33,13 +33,25 @@ export function createArenaPlayerCounter() {
 
       const res: arena.ArenaTopRanking = jqXHR.responseJSON;
 
-      const players = res.list.filter(({ update_date }) => {
-        const updateDate = new Date(update_date);
-        updateDate.setFullYear(updateDate.getMonth() + 1 === 12 ? 2023 : 2024);
+      const currentDate = new Date();
+      const threshhold = 30;
 
-        const currentDate = new Date();
+      const players = res.list.filter(({ update_date }) => {
+        const currentYear = currentDate.getFullYear();
+        const updateDate = new Date(update_date);
+
+        // システム時刻が1月で、更新日が12月の場合、前年の日付として扱う
+        if (
+          currentDate.getMonth() + 1 === 1 &&
+          updateDate.getMonth() + 1 === 12
+        ) {
+          updateDate.setFullYear(currentYear - 1);
+        } else {
+          updateDate.setFullYear(currentYear);
+        }
+
         return (
-          currentDate.getTime() - 1 * 60 * 30 * 1000 <= updateDate.getTime()
+          currentDate.getTime() - threshhold * 60 * 1000 <= updateDate.getTime()
         );
       });
 
