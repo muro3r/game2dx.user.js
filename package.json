@@ -11,15 +11,15 @@
     "test": "vitest"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.8.3",
+    "@biomejs/biome": "^2.1.4",
     "@types/jquery": "^2.0.68",
-    "husky": "^9.1.4",
-    "jsdom": "^24.1.1",
-    "lint-staged": "^15.2.8",
-    "typescript": "^5.5.4",
-    "vite": "^5.4.17",
-    "vite-plugin-monkey": "^4.0.6",
-    "vitest": "^2.1.9"
+    "husky": "^9.1.7",
+    "jsdom": "^26.1.0",
+    "lint-staged": "^16.1.5",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.1",
+    "vite-plugin-monkey": "^6.0.1",
+    "vitest": "^3.2.4"
   },
-  "packageManager": "pnpm@9.7.0"
+  "packageManager": "pnpm@10.14.0"
 }
