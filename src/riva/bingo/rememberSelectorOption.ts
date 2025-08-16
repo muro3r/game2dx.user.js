@@ -26,7 +26,7 @@ const loadValueFromStorage = (select: HTMLSelectElement) => {
   select.value = storageValue;
 };
 
-export default async function main() {
+export async function rememberSelectOption() {
   const selectElementList =
     document.querySelectorAll<HTMLSelectElement>("select");
 

@@ -56,7 +56,7 @@ class DetailParser {
   }
 }
 
-export default function main() {
+export function playRecorderFilename() {
   const elem = document.querySelector<HTMLDivElement>(
     "#section > div > div > div:nth-child(2)",
   );

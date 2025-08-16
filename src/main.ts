@@ -1,24 +1,33 @@
-import { arenaModeUnlockStatus } from "./arenaModeUnlockStatus";
-import { createArenaPlayerCounter } from "./createArenaPlayerCounter";
-import playRecorderFilename from "./playRecorderFilename";
-import rememberSelectOption from "./rememberSelectorOption";
+import { createArenaPlayerCounter } from "./features/arena";
+import { arenaModeUnlockStatus, playRecorderFilename } from "./features/djdata";
+import { rememberSelectOption } from "./riva/bingo/rememberSelectorOption";
 
-// 師弟システム ビンゴカード
-if (location.pathname.match(/rival\/bingo\/card_set_(music|cleartype).html$/)) {
-  rememberSelectOption();
-}
+type RouteHandler = {
+  pattern: RegExp;
+  handlers: Array<() => void>;
+};
 
-// プレー録画機能 ファイル名
-if (location.pathname.match(/djdata\/play_recorder\/detail.html$/)) {
-  playRecorderFilename();
-}
+const routes: RouteHandler[] = [
+  {
+    pattern: /rival\/bingo\/card_set_(music|cleartype)\.html$/,
+    handlers: [rememberSelectOption],
+  },
+  {
+    pattern: /djdata\/play_recorder\/detail\.html$/,
+    handlers: [playRecorderFilename],
+  },
+  {
+    pattern: /djdata\/arena_mode\/index\.html$/,
+    handlers: [arenaModeUnlockStatus],
+  },
+  {
+    pattern: /ranking\/arena\/top_ranking\.html$/,
+    handlers: [createArenaPlayerCounter],
+  },
+];
 
-// アリーナモード解禁状況
-if (location.pathname.match(/djdata\/arena_mode\/index.html$/)) {
-  arenaModeUnlockStatus();
-}
-
-// アリーナモード プレイヤー数カウンター
-if (location.pathname.match(/ranking\/arena\/top_ranking.html$/)) {
-  createArenaPlayerCounter();
-}
+routes.forEach(({ pattern, handlers }) => {
+  if (location.pathname.match(pattern)) {
+    handlers.forEach((fn) => fn());
+  }
+});
