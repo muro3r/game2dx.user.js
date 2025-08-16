@@ -1,5 +1,5 @@
-import type { arena } from "../types";
-import { ArenaActivePlayerCounter } from "./components/ArenaActivePlayerCounter";
+import type { arena } from "../../../types";
+import { ArenaActivePlayerCounter } from "../../components/ArenaActivePlayerCounter";
 
 export function createArenaPlayerCounter() {
   const playMenu = document.getElementById("play-menu");
