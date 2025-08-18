@@ -28,6 +28,8 @@ const routes: RouteHandler[] = [
 
 routes.forEach(({ pattern, handlers }) => {
   if (location.pathname.match(pattern)) {
-    handlers.forEach((fn) => fn());
+    handlers.forEach((fn) => {
+      fn();
+    });
   }
 });
