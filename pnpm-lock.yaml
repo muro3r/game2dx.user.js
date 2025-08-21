@@ -30,8 +30,8 @@ importers:
         specifier: ^7.1.1
         version: 7.1.3(yaml@2.8.1)
       vite-plugin-monkey:
-        specifier: ^6.0.1
-        version: 6.0.1(postcss@8.5.6)(vite@7.1.3(yaml@2.8.1))
+        specifier: ^7.0.0
+        version: 7.0.1(postcss@8.5.6)(vite@7.1.3(yaml@2.8.1))
       vitest:
         specifier: ^3.2.4
         version: 3.2.4(jsdom@26.1.0)(yaml@2.8.1)
@@ -952,8 +952,8 @@ packages:
     engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
     hasBin: true
 
-  vite-plugin-monkey@6.0.1:
-    resolution: {integrity: sha512-sk2pMKyaMKiJmyIV26EAkg9OKqVI563HQC46UVY7Cm2w2W8sanIrwSAKUaIXXXXxcY+RXCBZvYb7z33cKY+lMg==}
+  vite-plugin-monkey@7.0.1:
+    resolution: {integrity: sha512-XLNIGvNnT6Pz0JpFfziAkI7ICe1cn1YvBBM0wo6CZmBJneVa7K0zZxrKe3lbJWv6eSBvIWd3xfBpqiVGf7/U5g==}
     peerDependencies:
       vite: ^6.0.0 || ^7.0.0
     peerDependenciesMeta:
@@ -1884,7 +1884,7 @@ snapshots:
       - tsx
       - yaml
 
-  vite-plugin-monkey@6.0.1(postcss@8.5.6)(vite@7.1.3(yaml@2.8.1)):
+  vite-plugin-monkey@7.0.1(postcss@8.5.6)(vite@7.1.3(yaml@2.8.1)):
     dependencies:
       acorn-walk: 8.3.4
       cross-spawn: 7.0.6
